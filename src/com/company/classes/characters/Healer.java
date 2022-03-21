@@ -19,4 +19,23 @@ public class Healer  extends CharacterClass {
         this.setY(300);
         this.uploadImage("1.png", "2.png", "3.png");
     }
+
+    public void left() {
+
+    }
+    public void right() {
+
+    }
+    public void up() {
+
+    }
+    public void down() {
+
+    }
+    public void leftAttack() {
+
+    }
+    public void rightAttack() {
+
+    }
 }

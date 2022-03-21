@@ -187,4 +187,21 @@ public abstract class CharacterClass implements BaseClass {
     public void setAttackRightImage() {
         this.image = this.attackRightImage;
     }
+
+    public abstract void left();
+
+    public abstract void right();
+
+    public abstract void up();
+
+    public abstract void down();
+
+    public abstract void leftAttack();
+
+    public abstract void rightAttack();
+
+    public void tryChangePosition(int newX, int newY) {
+        this.x = newX;
+        this.y = newY;
+    }
 }

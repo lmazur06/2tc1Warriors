@@ -20,4 +20,23 @@ public class Mage  extends CharacterClass {
         this.setY(0);
         this.uploadImage("1.png", "2.png", "3.png");
     }
+
+    public void left() {
+
+    }
+    public void right() {
+
+    }
+    public void up() {
+
+    }
+    public void down() {
+
+    }
+    public void leftAttack() {
+
+    }
+    public void rightAttack() {
+
+    }
 }

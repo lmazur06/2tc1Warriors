@@ -35,19 +35,24 @@ public class GameField extends JPanel {
             int key = e.getKeyCode();
             for (CharacterClass player : players) {
                 if (key == player.leftKey) {
-                    player.setX(player.getX() - 40);
+                    player.left();
+                    //player.setX(player.getX() - 40);
                 }
                 if (key == player.rightKey) {
-                    player.setX(player.getX() + 40);
+                    //player.setX(player.getX() + 40);
+                    player.right();
                 }
                 if (key == player.upKey) {
-                    player.setY(player.getY() - 40);
+                    //player.setY(player.getY() - 40);
+                    player.up();
                 }
                 if (key == player.downKey) {
-                    player.setY(player.getY() + 40);
+                    //player.setY(player.getY() + 40);
+                    player.down();
                 }
                 if (key == player.leftAttackKey) {
-                    player.setAttackLeftImage();
+                    //player.setAttackLeftImage();
+                    player.leftAttack();
 
                     //timer
                     new java.util.Timer().schedule(
@@ -61,7 +66,8 @@ public class GameField extends JPanel {
                     );
                 }
                 if (key == player.rightAttackKey) {
-                    player.setAttackRightImage();
+                    player.rightAttack();
+                    //player.setAttackRightImage();
 
                     //timer
                     new java.util.Timer().schedule(
