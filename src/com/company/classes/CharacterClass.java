@@ -12,7 +12,7 @@ public abstract class CharacterClass implements BaseClass {
     private String name;
     private int maxHealthPoints;
     private int maxManaPoints;
-    private int leftKey, rightKey, upKey, downKey, leftAttackKey, rightAttackKey;
+    public int leftKey, rightKey, upKey, downKey, leftAttackKey, rightAttackKey;
 
     public CharacterClass(String name, int x, int y, int leftKey, int rightKey, int upKey, int downKey, int leftAttackKey, int rightAttackKey) {
         this.name = name;

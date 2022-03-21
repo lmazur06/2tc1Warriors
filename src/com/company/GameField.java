@@ -34,19 +34,19 @@ public class GameField extends JPanel {
             super.keyPressed(e);
             int key = e.getKeyCode();
             for (CharacterClass player : players) {
-                if (key == KeyEvent.VK_LEFT) {
+                if (key == player.leftKey) {
                     player.setX(player.getX() - 40);
                 }
-                if (key == KeyEvent.VK_RIGHT) {
+                if (key == player.rightKey) {
                     player.setX(player.getX() + 40);
                 }
-                if (key == KeyEvent.VK_UP) {
+                if (key == player.upKey) {
                     player.setY(player.getY() - 40);
                 }
-                if (key == KeyEvent.VK_DOWN) {
+                if (key == player.downKey) {
                     player.setY(player.getY() + 40);
                 }
-                if (key == KeyEvent.VK_O) {
+                if (key == player.leftAttackKey) {
                     player.setAttackLeftImage();
 
                     //timer
@@ -60,7 +60,7 @@ public class GameField extends JPanel {
                             }, 200
                     );
                 }
-                if (key == KeyEvent.VK_P) {
+                if (key == player.rightAttackKey) {
                     player.setAttackRightImage();
 
                     //timer
