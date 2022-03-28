@@ -34,10 +34,10 @@ public class Archer  extends CharacterClass {
         tryChangePosition(this.getX(), newPositionY);
 */
     }
-    public void down() {/*
+    public void down() {
         int newPositionY = 1;
         tryChangePosition(this.getX(), newPositionY);
-*/
+
     }
     public void leftAttack() {
 

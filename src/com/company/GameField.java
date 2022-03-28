@@ -24,7 +24,7 @@ public class GameField extends JPanel {
 
         for (CharacterClass player : players) {
             g.drawImage(player.getImage(), player.getX(), player.getY(), this);
-            g.drawString("healthPoints: " + player.getHealthPoints(), player.getX(), player.getY());
+            g.drawString("healthPoints: " + player.getHealthPoints(), player.getX(), player.getY() + 70);
         }
     }
 
@@ -34,7 +34,7 @@ public class GameField extends JPanel {
             super.keyPressed(e);
             int key = e.getKeyCode();
             for (CharacterClass player : players) {
-
+                    System.out.println(key);
                 if (key == player.leftKey) {
                     player.left();
                     //player.setX(player.getX() - 40);
@@ -54,21 +54,12 @@ public class GameField extends JPanel {
                 if (key == player.leftAttackKey) {
                     //player.setAttackLeftImage();
                     player.leftAttack();
-                }
-                if (key == KeyEvent.VK_LEFT) {
-                    player.setX(player.getX() - 40);
-                }
-                if (key == KeyEvent.VK_RIGHT) {
-                    player.setX(player.getX() + 40);
-                }
-                if (key == KeyEvent.VK_UP) {
-                    player.setY(player.getY() - 40);
-                }
-                if (key == KeyEvent.VK_DOWN) {
-                    player.setY(player.getY() + 40);
-                }
-                if (key == KeyEvent.VK_O) {
                     player.setAttackLeftImage();
+                    int neighbourId = CharacterClass.occupiedCells[player.getX()-40][player.getY()];
+                    if (player.getX() >= 40 && neighbourId > 0) {
+                        player.attack(players[neighbourId]);
+                    }
+
 
                     //timer
                     new java.util.Timer().schedule(
@@ -82,10 +73,6 @@ public class GameField extends JPanel {
                     );
                 }
                 if (key == player.rightAttackKey) {
-                    player.rightAttack();
-                    //player.setAttackRightImage();
-                }
-                if (key == KeyEvent.VK_P) {
                     player.setAttackRightImage();
 
                     //timer
