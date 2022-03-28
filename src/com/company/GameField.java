@@ -34,7 +34,7 @@ public class GameField extends JPanel {
             super.keyPressed(e);
             int key = e.getKeyCode();
             for (CharacterClass player : players) {
-<<<<<<< HEAD
+
                 if (key == player.leftKey) {
                     player.left();
                     //player.setX(player.getX() - 40);
@@ -54,7 +54,7 @@ public class GameField extends JPanel {
                 if (key == player.leftAttackKey) {
                     //player.setAttackLeftImage();
                     player.leftAttack();
-=======
+===
                 if (key == KeyEvent.VK_LEFT) {
                     player.setX(player.getX() - 40);
                 }
