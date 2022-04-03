@@ -24,7 +24,7 @@ public class GameField extends JPanel {
 
         for (CharacterClass player : players) {
             g.drawImage(player.getImage(), player.getX(), player.getY(), this);
-            g.drawString("healthPoints: " + player.getHealthPoints(), player.getX(), player.getY() + 70);
+            g.drawString(" " + player.getHealthPoints(), player.getX(), player.getY() + 70);
         }
     }
 
