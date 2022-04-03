@@ -11,7 +11,8 @@ public class Mage  extends CharacterClass {
         this.setAttackType(AttackType.MAGICAL_RANGED);
         this.setMaxHealthPoints(300);
         this.setManaPoints(300);
-        this.uploadImage("1.png", "3.png", "2.png");
+        this.playerClass = "mage";
+        this.uploadImage();
         this.setAttackAmount(70);
     }
     @Override

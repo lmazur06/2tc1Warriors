@@ -11,8 +11,9 @@ public class Warrior extends CharacterClass {
         this.setAttackType(AttackType.PHYSICAL);
         this.setMaxHealthPoints(1000);
         this.setManaPoints(200);
-        this.uploadImage("1.png", "3.png", "2.png");
-       this.setAttackAmount(100);
+        this.playerClass = "warrior";
+        this.uploadImage();
+        this.setAttackAmount(100);
     }
     @Override
     public void left() {

@@ -17,7 +17,7 @@ public class Healer  extends CharacterClass {
 
         this.setX(0);
         this.setY(300);
-        this.uploadImage("1.png", "2.png", "3.png");
+        this.uploadImage();
     }
 
     public void left() {

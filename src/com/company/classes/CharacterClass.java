@@ -14,7 +14,7 @@ public abstract class CharacterClass implements BaseClass {
     private AttackType attackType;
     private int attackAmount;
     private int id;
-    private String name;
+    protected String name, playerClass;
     private int maxHealthPoints;
     private int maxManaPoints;
     public int leftKey, rightKey, upKey, downKey, leftAttackKey, rightAttackKey;
@@ -178,7 +178,10 @@ public abstract class CharacterClass implements BaseClass {
         return y;
     }
 
-    public void uploadImage(String baseImage, String attackLeftImage, String attackRightImage) {
+    public void uploadImage() {
+        String baseImage = Constants.IMG_FOLDER + this.playerClass + "/base.png";
+        String attackLeftImage = Constants.IMG_FOLDER + this.playerClass + "/left.png";
+        String attackRightImage = Constants.IMG_FOLDER + this.playerClass + "/right.png";
         this.baseImage = new ImageIcon(baseImage).getImage();
         this.attackLeftImage = new ImageIcon(attackLeftImage).getImage();
         this.attackRightImage = new ImageIcon(attackRightImage).getImage();
