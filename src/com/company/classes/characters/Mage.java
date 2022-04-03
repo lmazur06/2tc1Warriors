@@ -1,37 +1,42 @@
 package com.company.classes.characters;
 
+import com.company.Constants;
 import com.company.classes.AttackType;
 import com.company.classes.CharacterClass;
 
 public class Mage  extends CharacterClass {
-
     public Mage(String name, int x, int y, int leftKey, int rightKey, int upKey, int downKey, int leftAttackKey, int rightAttackKey) {
         super(name, x, y, leftKey, rightKey, upKey, downKey, leftAttackKey, rightAttackKey);
-        this.setLevel(1);
-        this.setMaxHealthPoints(1000);
-        this.setHealthPoints(1000);
-        this.setManaPoints(200);
-        this.setMaxManaPoints(200);
-        this.setAttackType(AttackType.PHYSICAL);
-        this.setAttackAmount(5);
-        this.setName(name);
 
-        this.setX(300);
-        this.setY(0);
-        this.uploadImage("1.png", "2.png", "3.png");
+        this.setAttackType(AttackType.MAGICAL_RANGED);
+        this.setMaxHealthPoints(300);
+        this.setManaPoints(300);
+        this.uploadImage("1.png", "3.png", "2.png");
+        this.setAttackAmount(70);
     }
-
+    @Override
     public void left() {
+        int newPositionX = this.getX() >= Constants.CHARACTER_IMG_WIDTH ? this.getX() - Constants.CHARACTER_IMG_WIDTH : Constants.MAX_RIGHT_POSITION;
+        tryChangePosition(newPositionX, getY());
 
     }
+
+    @Override
     public void right() {
-
+        int newPositionX = this.getX() < Constants.MAX_RIGHT_POSITION ? this.getX() + Constants.CHARACTER_IMG_WIDTH : 0;
+        tryChangePosition(newPositionX, getY());
     }
+
+    @Override
     public void up() {
-
+        int newPositionY = this.getY() < Constants.CHARACTER_IMG_HEIGHT ? Constants.MAX_RIGHT_POSITION : this.getY() - Constants.CHARACTER_IMG_HEIGHT;
+        tryChangePosition(getX(), newPositionY);
     }
-    public void down() {
 
+    @Override
+    public void down() {
+        int newPositionY = this.getY() < Constants.MAX_RIGHT_POSITION ? this.getY() + Constants.CHARACTER_IMG_HEIGHT : 0;
+        tryChangePosition(getX(), newPositionY);
     }
     public void leftAttack() {
 

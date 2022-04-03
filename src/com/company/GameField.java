@@ -34,32 +34,26 @@ public class GameField extends JPanel {
             super.keyPressed(e);
             int key = e.getKeyCode();
             for (CharacterClass player : players) {
-                    System.out.println(key);
                 if (key == player.leftKey) {
                     player.left();
-                    //player.setX(player.getX() - 40);
                 }
                 if (key == player.rightKey) {
-                    //player.setX(player.getX() + 40);
                     player.right();
                 }
                 if (key == player.upKey) {
-                    //player.setY(player.getY() - 40);
                     player.up();
                 }
                 if (key == player.downKey) {
-                    //player.setY(player.getY() + 40);
                     player.down();
                 }
                 if (key == player.leftAttackKey) {
-                    //player.setAttackLeftImage();
-                    player.leftAttack();
                     player.setAttackLeftImage();
-                    int neighbourId = CharacterClass.occupiedCells[player.getX()-40][player.getY()];
-                    if (player.getX() >= 40 && neighbourId > 0) {
-                        player.attack(players[neighbourId]);
+                    if (player.getX() >= Constants.CHARACTER_IMG_WIDTH) {
+                        int neighbourId = CharacterClass.occupiedCells[player.getX() - Constants.CHARACTER_IMG_WIDTH][player.getY()];
+                        if (neighbourId > 0){
+                            player.attack(players[neighbourId - 1]);
+                        }
                     }
-
 
                     //timer
                     new java.util.Timer().schedule(
@@ -74,7 +68,12 @@ public class GameField extends JPanel {
                 }
                 if (key == player.rightAttackKey) {
                     player.setAttackRightImage();
-
+                    if (player.getX() <Constants.MAX_RIGHT_POSITION) {
+                        int neighbourId = CharacterClass.occupiedCells[player.getX() + Constants.CHARACTER_IMG_WIDTH][player.getY()];
+                        if (neighbourId > 0){
+                            player.attack(players[neighbourId - 1]);
+                        }
+                    }
                     //timer
                     new java.util.Timer().schedule(
                             new java.util.TimerTask() {

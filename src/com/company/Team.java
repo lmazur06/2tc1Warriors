@@ -23,7 +23,6 @@ public class Team {
     }
 
     public void info(){
-        //for(int i = 0; i < teamMembers.length; i++){
         for(CharacterClass teamMembers : teamMembers){
             teamMembers.info();
         }
@@ -34,6 +33,6 @@ public class Team {
     }
 
     public void runArena() {
-        MainWindow mw = new MainWindow(Constants.WINDOW_WEIGHT, Constants.WINDOW_HEIGHT, this);
+        MainWindow mw = new MainWindow(Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT, this);
     }
 }

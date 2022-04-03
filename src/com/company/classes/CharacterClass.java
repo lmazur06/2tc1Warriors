@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class CharacterClass implements BaseClass {
-    public static int[][] occupiedCells = new int[Constants.WINDOW_WEIGHT][Constants.WINDOW_HEIGHT];
+    public static int[][] occupiedCells = new int[Constants.WINDOW_WIDTH][Constants.WINDOW_HEIGHT];
     private static int playerCount = 0;
     private int healthPoints = 200;
     private int manaPoints;
@@ -31,6 +31,7 @@ public abstract class CharacterClass implements BaseClass {
         this.leftAttackKey = leftAttackKey;
         this.rightAttackKey = rightAttackKey;
         this.rightKey = rightKey;
+        this.setLevel(1);
     }
 
     public void setHealthPoints(int healthPoints) {
