@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class GameField extends JPanel {
     private Team team;
@@ -16,6 +18,13 @@ public class GameField extends JPanel {
 
         setFocusable(true);
         addKeyListener(new FieldKeyListener());
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                for (CharacterClass player : players) player.mouseClicked(e);
+                repaint();
+            }
+        });
     }
 
     @Override
@@ -86,6 +95,7 @@ public class GameField extends JPanel {
                             }, 200
                     );
                 }
+                player.keyPress(key);
             }
             repaint();
         }

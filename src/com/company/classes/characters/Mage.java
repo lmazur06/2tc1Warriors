@@ -3,9 +3,19 @@ package com.company.classes.characters;
 import com.company.Constants;
 import com.company.classes.AttackType;
 import com.company.classes.CharacterClass;
+import com.company.util.AlignInteger;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import static com.company.util.AlignInteger.alignInteger;
 
 public class Mage  extends CharacterClass {
-    public Mage(String name, int x, int y, int leftKey, int rightKey, int upKey, int downKey, int leftAttackKey, int rightAttackKey) {
+    private final int teleportKey;
+    public Mage(String name, int x, int y, int leftKey, int rightKey, int upKey, int downKey, int leftAttackKey, int rightAttackKey, int teleportKey) {
         super(name, x, y, leftKey, rightKey, upKey, downKey, leftAttackKey, rightAttackKey);
 
         this.setAttackType(AttackType.MAGICAL_RANGED);
@@ -14,6 +24,7 @@ public class Mage  extends CharacterClass {
         this.playerClass = "mage";
         this.uploadImage();
         this.setAttackAmount(70);
+        this.teleportKey = teleportKey;
     }
     @Override
     public void left() {
@@ -44,5 +55,22 @@ public class Mage  extends CharacterClass {
     }
     public void rightAttack() {
 
+    }
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(shouldTeleport) {
+            tryChangePosition(
+                alignInteger(e.getX(), Constants.CHARACTER_IMG_WIDTH),
+                alignInteger(e.getY(), Constants.CHARACTER_IMG_HEIGHT)
+            );
+            shouldTeleport = false;
+        }
+    }
+    private boolean shouldTeleport = false;
+    @Override
+    public void keyPress(int key){
+        if(key == teleportKey){
+            shouldTeleport = true;
+        }
     }
 }

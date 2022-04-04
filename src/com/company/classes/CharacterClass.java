@@ -4,6 +4,7 @@ import com.company.Constants;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 
 public abstract class CharacterClass implements BaseClass {
     public static int[][] occupiedCells = new int[Constants.WINDOW_WIDTH][Constants.WINDOW_HEIGHT];
@@ -211,6 +212,11 @@ public abstract class CharacterClass implements BaseClass {
     public abstract void leftAttack();
 
     public abstract void rightAttack();
+
+    public void keyPress(int key){
+    }
+    public void mouseClicked(MouseEvent e) {
+    }
 
     public void tryChangePosition(int newX, int newY) {
         if (occupiedCells[newX][newY] == 0) {
